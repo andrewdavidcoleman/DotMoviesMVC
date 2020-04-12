@@ -15,6 +15,8 @@ namespace DotMoviesMVC.Models
 
         public IList<Movie> Movies { get; set; } = new List<Movie>();
 
+        public string SearchText { get; set; }
+
         public bool IsTableView { get; set; } = false;
     }
 }

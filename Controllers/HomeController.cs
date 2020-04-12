@@ -27,11 +27,12 @@ namespace DotMoviesMVC.Controllers
             return View();
         }
 
-        public async Task<IActionResult> Results(string title, bool isTableView)
+        public async Task<IActionResult> Results(string searchText, bool isTableView)
         {
             ResultsViewModel model = new ResultsViewModel();
-            model.Movies = await _service.Search(title);
+            model.Movies = await _service.Search(searchText);
             model.IsTableView = isTableView;
+            model.SearchText = searchText;
             return View(model);
         }
 

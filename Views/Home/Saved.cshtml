@@ -1,8 +1,33 @@
 ﻿@model SavedViewModel;
 
+
 <div id="results" class="col">
     <div class="row d-flex justify-content-center">
-        <h1>@ViewData["Title"]</h1>
+        <div class="col"></div>
+        <div class="col">
+            <h1 class="row justify-content-center">@ViewData["Title"]</h1>
+        </div>
+        <div class="col align-self-center">
+            <div class="row justify-content-beginning">
+                @if (Model.Movies.Count > 0)
+                {
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <a class="btn @(Model.IsTableView ? "btn-outline-secondary" : "btn-primary" )" role="button"
+                           asp-controller="Home"
+                           asp-action="Saved"
+                           asp-route-isTableView="false">
+                            Deck
+                        </a>
+                        <a class="btn @(Model.IsTableView ? "btn-primary" : "btn-outline-secondary" )" role="button"
+                           asp-controller="Home"
+                           asp-action="Saved"
+                           asp-route-isTableView="true">
+                            Table
+                        </a>
+                    </div>
+                }
+            </div>
+        </div>
     </div>
     <div class="row d-flex justify-content-center">
         @if (Model.Movies == null || Model.Movies.Count == 0)
@@ -11,10 +36,48 @@
         }
         else
         {
-            @foreach (Movie movie in Model.Movies)
+            if (Model.IsTableView)
             {
-                <partial name="Partials/MovieCard.cshtml" model="@movie" />
+                <div class="col">
+                    <table id="movieTable" class="display" width="100%">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Year</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (Movie movie in Model.Movies)
+                            {
+                                <tr onclick="movieTableRowClick('@Url.Action("Detail", "Home", new { id = movie.imdbId})')">
+                                    <td>@movie.Title</td>
+                                    <td>@movie.Year</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+            else
+            {
+                @foreach (Movie movie in Model.Movies)
+                {
+                    <partial name="Partials/MovieCard.cshtml" model="@movie" />
+                }
             }
         }
     </div>
 </div>
+
+@section Scripts {
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+    <script>
+        $(document).ready(function () {
+            initDataTable();
+        });
+    </script>
+}
+
+@section Styles {
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+}

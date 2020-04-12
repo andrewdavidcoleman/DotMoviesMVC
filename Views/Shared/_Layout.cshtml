@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="~/css/fa.css" />
+    @RenderSection("Styles", required: false)
     <base href="~/" />
 </head>
 <body>
@@ -15,7 +16,7 @@
             <form class="row flex-fill" action="/Home/Results" method="GET">
                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-8 col-8">
                     <div class="input-group">
-                        <input class="form-control" type="text" name="title" placeholder="Search..." />
+                        <input class="form-control" type="text" name="searchText" placeholder="Search..." />
                         <div class="input-group-append">
                             <button class="btn btn-primary" type="submit">Go</button>
                         </div>
@@ -46,7 +47,7 @@
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/site.js"></script>
 
     @RenderSection("Scripts", required: false)
 </body>

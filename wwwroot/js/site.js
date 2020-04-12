@@ -1,9 +1,14 @@
 ﻿
-function StarOnClick(id, saveUrl, deleteUrl, element, event) {
+function initDataTable() {
 
-    const url = $(element).hasClass('saved') ? deleteUrl : saveUrl;
-    $.post(url, { id }, function () {
-        $(element).toggleClass('saved');
+    $('#movieTable').DataTable({
+        searching: false,
+        paging: false,
+        order: []
     });
 
+}
+
+function movieTableRowClick(url) {
+    window.location = url;
 }
