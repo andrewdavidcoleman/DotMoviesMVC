@@ -1,0 +1,21 @@
+﻿@model Movie
+
+    <a class="card" href="Home/Detail?id=@Model.imdbId">
+        <div class="row h-25">
+            <div class="col">
+                <h5>
+                    @Model.Title
+                    @if (Model.Saved)
+                    {
+                        <i class="fas fa-star saved"></i>
+                    }
+                </h5>
+                <p>@Model.Year</p>
+            </div>
+        </div>
+        <div class="row h-75">
+            <div class="col d-flex align-items-center justify-content-center">
+                <img src="@Model.Poster" height="150" width="100" />
+            </div>
+        </div>
+    </a>

@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - DotMovies</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/fa.css" />
+    <base href="~/" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <form class="row flex-fill" action="/Home/Results" method="GET">
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-8 col-8">
+                    <div class="input-group">
+                        <input class="form-control" type="text" name="title" placeholder="Search..." />
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="submit">Go</button>
+                        </div>
+                    </div>
+                </div>
+                <button class="navbar-toggler ml-auto mr-3" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark ml-3" href="Home/Saved">Saved</a>
+                        </li>
+                    </ul>
+                </div>
+
+
+
+            </form>
+        </nav>
+    </header>
+    <div class="container d-flex flex-fill">
+        <main role="main" class="flex-fill">
+            @RenderBody()
+        </main>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

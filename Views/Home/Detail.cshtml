@@ -1,0 +1,17 @@
+﻿@model DetailViewModel
+<div id="detail" class="row">
+    <form method="post" class="col">
+        <h1>
+            @Model.Movie.Title
+                <partial name="Partials/Star.cshtml" model="@Model.Movie" />
+            </h1>
+        <strong>Released:</strong> <span>@Model.Movie.Released</span><br/>
+        <strong>Runtime:</strong> <span>@Model.Movie.Runtime</span><br/>
+        <strong>Director:</strong> <span>@Model.Movie.Director</span><br/>
+        <strong>Starring:</strong> <span>@Model.Movie.Actors</span><br/><br/>
+        <p>@Model.Movie.Plot</p>
+    </form>
+    <div class="col">
+        <img src="@Model.Movie.Poster"/>
+    </div>
+</div>

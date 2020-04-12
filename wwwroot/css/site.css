@@ -1,0 +1,68 @@
+﻿body {
+    background-color: #F8F9FA;
+}
+
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+a {
+    color: #0366d6;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+nav input {
+    width: 300px;
+}
+
+nav .nav-link {
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+    nav .nav-link:hover {
+        border-bottom: 2px solid gray;
+    }
+
+i {
+    color: lightgray;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s cubic-bezier(.25,.8,.25,1);
+}
+
+    i.saved {
+        color: gold;
+    }
+
+#results .card {
+    height: 275px;
+    width: 200px;
+    padding: 10px;
+    margin: 10px;
+    text-decoration: none;
+    color: black;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+    #results .card:hover {
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    }
+
+#detail img {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}

@@ -1,0 +1,24 @@
+﻿@model ResultsViewModel
+
+@{
+    ViewData["Title"] = "Results";
+}
+
+<div id="results" class="col">
+    <div class="row d-flex justify-content-center">
+        <h1>@ViewData["Title"]</h1>
+    </div>
+    <div class="row d-flex justify-content-center">
+        @if (Model.Movies == null || Model.Movies.Count == 0)
+        {
+            <p>No results. Try again or visit <a href="/Saved">saved</a> movies.</p>
+        }
+        else
+        {
+            @foreach (Movie movie in Model.Movies)
+            {
+                <partial name="Partials/MovieCard.cshtml" model="@movie" />
+            }
+        }
+    </div>
+</div>
