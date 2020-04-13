@@ -49,14 +49,18 @@
                             <tr>
                                 <th>Title</th>
                                 <th>Year</th>
+                                <th>Starring</th>
+                                <th>Director</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach (Movie movie in Model.Movies)
                             {
-                                <tr onclick="movieTableRowClick('@Url.Action("Detail", "Home", new { id = movie.imdbId})')">
+                                <tr onclick="window.location = '@Url.Action("Detail", "Home", new { id = movie.imdbId})'">
                                     <td>@movie.Title</td>
                                     <td>@movie.Year</td>
+                                    <td>@movie.Actors</td>
+                                    <td>@movie.Director</td>
                                 </tr>
                             }
                         </tbody>
@@ -78,7 +82,7 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
     <script>
         $(document).ready(function () {
-            initDataTable();
+            initDataTableHTML();
         });
     </script>
 }

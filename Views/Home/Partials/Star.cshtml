@@ -3,4 +3,4 @@
 
 <i class=" fas fa-star @(Model.Saved ? "saved" : "")" 
    title="@(Model.Saved ? "Unsave" : "Save")" 
-   onclick="StarOnClick('@Model.imdbId', '@Url.Action("Save", "Home")', '@Url.Action("Delete", "Home")',this, event)"></i>
+   onclick="starOnClick('@Model.imdbId', '@Url.Action("Save", "Home")', '@Url.Action("Delete", "Home")',this, event)"></i>

@@ -39,23 +39,7 @@
             if (Model.IsTableView)
             {
                 <div class="col">
-                    <table id="movieTable" class="display" width="100%">
-                        <thead>
-                            <tr>
-                                <th>Title</th>
-                                <th>Year</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (Movie movie in Model.Movies)
-                            {
-                                <tr onclick="movieTableRowClick('@Url.Action("Detail", "Home", new { id = movie.imdbId})')">
-                                    <td>@movie.Title</td>
-                                    <td>@movie.Year</td>
-                                </tr>
-                            }
-                        </tbody>
-                    </table>
+                    <table id="movieTable" class="display" width="100%"></table>
                 </div>
             }
             else
@@ -73,7 +57,7 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
     <script>
         $(document).ready(function () {
-            initDataTable();
+            initDataTableJS(@Html.Raw(Json.Serialize(Model.Movies)), '@Url.Action("Detail", "Home")');
         });
     </script>
 }
