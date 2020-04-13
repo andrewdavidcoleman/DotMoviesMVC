@@ -49,8 +49,6 @@
                             <tr>
                                 <th>Title</th>
                                 <th>Year</th>
-                                <th>Starring</th>
-                                <th>Director</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -59,8 +57,6 @@
                                 <tr onclick="window.location = '@Url.Action("Detail", "Home", new { id = movie.imdbId})'">
                                     <td>@movie.Title</td>
                                     <td>@movie.Year</td>
-                                    <td>@movie.Actors</td>
-                                    <td>@movie.Director</td>
                                 </tr>
                             }
                         </tbody>
